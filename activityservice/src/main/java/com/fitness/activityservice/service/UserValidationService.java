@@ -5,16 +5,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@RequiredArgsConstructor
+@Slf4j
 public class UserValidationService {
 
     private final WebClient userServiceWebClient;
-
-    public UserValidationService(WebClient userServiceWebClient) {
-        this.userServiceWebClient = userServiceWebClient;
-    }
-
     public boolean validationUser(String userId) {
+         log.info("Calling User Validation API for userID : {}", userId);
         try {
             return Boolean.TRUE.equals(userServiceWebClient.get()
                 .uri("/api/users/{userId}/validate", userId)

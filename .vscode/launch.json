@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AiserviceApplication",
+            "request": "launch",
+            "mainClass": "com.fitness.aiservice.AiserviceApplication"
+        },
+        {
+            "type": "java",
             "name": "EurekaApplication",
             "request": "launch",
             "mainClass": "com.server.eureka.EurekaApplication"
